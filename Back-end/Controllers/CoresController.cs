@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Basico.Data;
-using Basico.Models;
+using PlanoBasico.Data;
+using PlanoBasico.Models;
 
-namespace Basico.Controllers
+namespace PlanoBasico.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -25,14 +20,14 @@ namespace Basico.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cor>>> GetCores()
         {
-            return await _context.Cor.ToListAsync();
+            return await _context.Cores.ToListAsync();
         }
 
         // GET: api/Cores/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Cor>> GetCor(int id)
         {
-            var cor = await _context.Cor.FindAsync(id);
+            var cor = await _context.Cores.FindAsync(id);
 
             if (cor == null)
             {
@@ -76,7 +71,7 @@ namespace Basico.Controllers
         [HttpPost]
         public async Task<ActionResult<Cor>> PostCor(Cor cor)
         {
-            _context.Cor.Add(cor);
+            _context.Cores.Add(cor);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCor", new { id = cor.Id }, cor);
@@ -86,13 +81,13 @@ namespace Basico.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCor(int id)
         {
-            var cor = await _context.Cor.FindAsync(id);
+            var cor = await _context.Cores.FindAsync(id);
             if (cor == null)
             {
                 return NotFound();
             }
 
-            _context.Cor.Remove(cor);
+            _context.Cores.Remove(cor);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -100,7 +95,7 @@ namespace Basico.Controllers
 
         private bool CorExists(int id)
         {
-            return _context.Cor.Any(e => e.Id == id);
+            return _context.Cores.Any(e => e.Id == id);
         }
     }
 }

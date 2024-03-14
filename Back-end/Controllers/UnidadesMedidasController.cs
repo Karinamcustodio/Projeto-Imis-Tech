@@ -5,34 +5,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Basico.Data;
-using Basico.Models;
+using PlanoBasico.Data;
+using PlanoBasico.Models;
 
-namespace Basico.Controllers
+namespace PlanoBasico.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UnidadesMedidaController : ControllerBase
+    public class UnidadesMedidasController : ControllerBase
     {
         private readonly ApiContext _context;
 
-        public UnidadesMedidaController(ApiContext context)
+        public UnidadesMedidasController(ApiContext context)
         {
             _context = context;
         }
 
-        // GET: api/UnidadesMedida
+        // GET: api/UnidadesMedidas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UnidadeMedida>>> GetUnidadesMedida()
+        public async Task<ActionResult<IEnumerable<UnidadeMedida>>> GetUnidadesMedidas()
         {
-            return await _context.UnidadeMedida.ToListAsync();
+            return await _context.UnidadesMedidas.ToListAsync();
         }
 
-        // GET: api/UnidadesMedida/5
+        // GET: api/UnidadesMedidas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<UnidadeMedida>> GetUnidadeMedida(int id)
         {
-            var unidadeMedida = await _context.UnidadeMedida.FindAsync(id);
+            var unidadeMedida = await _context.UnidadesMedidas.FindAsync(id);
 
             if (unidadeMedida == null)
             {
@@ -42,7 +42,7 @@ namespace Basico.Controllers
             return unidadeMedida;
         }
 
-        // PUT: api/UnidadesMedida/5
+        // PUT: api/UnidadesMedidas/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUnidadeMedida(int id, UnidadeMedida unidadeMedida)
         {
@@ -72,27 +72,27 @@ namespace Basico.Controllers
             return NoContent();
         }
 
-        // POST: api/UnidadesMedida
+        // POST: api/UnidadesMedidas
         [HttpPost]
         public async Task<ActionResult<UnidadeMedida>> PostUnidadeMedida(UnidadeMedida unidadeMedida)
         {
-            _context.UnidadeMedida.Add(unidadeMedida);
+            _context.UnidadesMedidas.Add(unidadeMedida);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUnidadeMedida", new { id = unidadeMedida.Id }, unidadeMedida);
         }
 
-        // DELETE: api/UnidadesMedida/5
+        // DELETE: api/UnidadesMedidas/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUnidadeMedida(int id)
         {
-            var unidadeMedida = await _context.UnidadeMedida.FindAsync(id);
+            var unidadeMedida = await _context.UnidadesMedidas.FindAsync(id);
             if (unidadeMedida == null)
             {
                 return NotFound();
             }
 
-            _context.UnidadeMedida.Remove(unidadeMedida);
+            _context.UnidadesMedidas.Remove(unidadeMedida);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -100,7 +100,7 @@ namespace Basico.Controllers
 
         private bool UnidadeMedidaExists(int id)
         {
-            return _context.UnidadeMedida.Any(e => e.Id == id);
+            return _context.UnidadesMedidas.Any(e => e.Id == id);
         }
     }
 }

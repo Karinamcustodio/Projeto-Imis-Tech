@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Basico.Data;
-using Basico.Models;
+using PlanoBasico.Data;
+using PlanoBasico.Models;
 
-namespace Basico.Controllers
+namespace PlanoBasico.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,9 +18,9 @@ namespace Basico.Controllers
 
         // GET: api/Materiais
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Material>>> GetMateriais()
+        public async Task<ActionResult<IEnumerable<Material>>> GetMaterial()
         {
-            return await _context.Material
+            return await _context.Materiais
                 .Include(m => m.Categorias)
                 .ToListAsync();
         }
@@ -34,7 +29,7 @@ namespace Basico.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Material>> GetMaterial(int id)
         {
-            var material = await _context.Material.FindAsync(id);
+            var material = await _context.Materiais.FindAsync(id);
 
             if (material == null)
             {
@@ -42,6 +37,23 @@ namespace Basico.Controllers
             }
 
             return material;
+        }
+
+        // GET: api/Materiais/UltimoNumeroPorCategoria/5
+        [HttpGet("UltimoNumeroPorCategoria/{categoriaId}")]
+        public async Task<ActionResult<int>> GetUltimoNumeroPorCategoria(int categoriaId)
+        {
+            var ultimoMaterial = await _context.Materiais
+                .Where(m => m.CategoriaId == categoriaId)
+                .OrderByDescending(m => m.Id)
+                .FirstOrDefaultAsync();
+
+            if (ultimoMaterial == null)
+            {
+                return 0;
+            }
+
+            return ultimoMaterial.Id;
         }
 
         // PUT: api/Materiais/5
@@ -78,9 +90,10 @@ namespace Basico.Controllers
         [HttpPost]
         public async Task<ActionResult<Material>> PostMaterial(Material material)
         {
-            material.Categorias = await _context.Categoria.FirstOrDefaultAsync(m => m.Id == material.CategoriaId);
+            material.CategoriaId = material.Categorias.Id;
+            material.Categorias = await _context.Categorias.FirstOrDefaultAsync(m => m.Id == material.CategoriaId);
 
-            _context.Material.Add(material);
+            _context.Materiais.Add(material);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetMaterial", new { id = material.Id }, material);
@@ -90,13 +103,13 @@ namespace Basico.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMaterial(int id)
         {
-            var material = await _context.Material.FindAsync(id);
+            var material = await _context.Materiais.FindAsync(id);
             if (material == null)
             {
                 return NotFound();
             }
 
-            _context.Material.Remove(material);
+            _context.Materiais.Remove(material);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -104,7 +117,7 @@ namespace Basico.Controllers
 
         private bool MaterialExists(int id)
         {
-            return _context.Material.Any(e => e.Id == id);
+            return _context.Materiais.Any(e => e.Id == id);
         }
     }
 }
