@@ -1,20 +1,20 @@
 {
   "Version": 1,
-  "Hash": "E3rjg7w637Tt0hP9RZ9kTazR2ge8rJVrI6tkbj6kkDg=",
-  "Source": "Basico",
-  "BasePath": "_content/Basico",
+  "Hash": "5a8PH2wsI/ZYGV4vB8YP5LW+BNSXetxDe9PeRqKHbJk=",
+  "Source": "PlanoBasico",
+  "BasePath": "_content/PlanoBasico",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
   "Assets": [
     {
-      "Identity": "C:\\ProjetoImisTech\\Back-end\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Basico.styles.css",
-      "SourceId": "Basico",
+      "Identity": "C:\\ProjetoSistemaModa\\Back-End\\Api Web\\PlanoBasico\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PlanoBasico.styles.css",
+      "SourceId": "PlanoBasico",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\ProjetoImisTech\\Back-end\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/Basico",
-      "RelativePath": "Basico.styles.css",
+      "ContentRoot": "C:\\ProjetoSistemaModa\\Back-End\\Api Web\\PlanoBasico\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/PlanoBasico",
+      "RelativePath": "PlanoBasico.styles.css",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Primary",
@@ -25,7 +25,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\ProjetoImisTech\\Back-end\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Basico.styles.css"
+      "OriginalItemSpec": "C:\\ProjetoSistemaModa\\Back-End\\Api Web\\PlanoBasico\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PlanoBasico.styles.css"
     },
     {
       "Identity": "C:\\Users\\celadm\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",

@@ -1,17 +1,24 @@
-﻿using Basico.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using PlanoBasico.Models;
 
-namespace Basico.Data
+namespace PlanoBasico.Data
 {
     public class ApiContext : DbContext
     {
         public ApiContext(DbContextOptions<ApiContext> options) : base(options) { }
 
-        public DbSet<Material> Material { get; set; }
-        public DbSet<Categoria> Categoria { get; set; }
-        public DbSet<UnidadeMedida> UnidadeMedida { get; set; }
-        public DbSet<Cor> Cor { get; set; }
-        public DbSet<Cor_Material> Cor_Material { get; set; }
-        public DbSet<UnidadeMedida_Material> UnidadeMedida_Material { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Cor> Cores { get; set; }
+        public DbSet<Material> Materiais { get; set; }
+        public DbSet<CorMaterial> CoresMateriais { get; set; }
+        public DbSet<UnidadeMedida> UnidadesMedidas { get; set; }
+        public DbSet<UnidadeMedidaMaterial> UnidadesMedidasMateriais { get; set; }
+        public DbSet<Segmento> Segmentos { get; set; }
+        public DbSet<Colecao> Colecoes { get; set; }
+        public DbSet<Modelo> Modelos { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<CorProduto> CoresProdutos { get; set; }
+
+
     }
 }

@@ -1830,9 +1830,6 @@
           }
         }
       },
-      "NuGet.CommandLine/6.9.1": {
-        "type": "package"
-      },
       "NuGet.Common/6.3.1": {
         "type": "package",
         "dependencies": {
@@ -6103,23 +6100,6 @@
         "postgresql.png"
       ]
     },
-    "NuGet.CommandLine/6.9.1": {
-      "sha512": "FgmFOLcJqeMdgnUV8b/NHYwrL/ti88RPwHhKE0TYXOolvPCiO3Bv6bU/XulXSYRit3fSJ3UViYsd0YRqOoicZg==",
-      "type": "package",
-      "path": "nuget.commandline/6.9.1",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "NOTICES.txt",
-        "README.md",
-        "icon.png",
-        "nuget.commandline.6.9.1.nupkg.sha512",
-        "nuget.commandline.nuspec",
-        "tools/NuGet.exe",
-        "tools/NuGet.pdb"
-      ]
-    },
     "NuGet.Common/6.3.1": {
       "sha512": "/WgxNyc9dXl+ZrQJDf5BXaqtMbl0CcDC5GEQITecbHZBQHApTMuxeTMMEqa0Y+PD1CIxTtbRY4jmotKS5dsLuA==",
       "type": "package",
@@ -7261,11 +7241,9 @@
     "net8.0": [
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.2",
       "Microsoft.EntityFrameworkCore >= 8.0.2",
-      "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.1",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.2",
-      "NuGet.CommandLine >= 6.9.1",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -7276,9 +7254,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProjetoImisTech\\Back-end\\Basico.csproj",
-      "projectName": "Basico",
-      "projectPath": "C:\\ProjetoImisTech\\Back-end\\Basico.csproj",
+      "projectUniqueName": "C:\\ProjetoImisTech\\Back-end\\PlanoBasico.csproj",
+      "projectName": "PlanoBasico",
+      "projectPath": "C:\\ProjetoImisTech\\Back-end\\PlanoBasico.csproj",
       "packagesPath": "C:\\Users\\celadm\\.nuget\\packages\\",
       "outputPath": "C:\\ProjetoImisTech\\Back-end\\obj\\",
       "projectStyle": "PackageReference",
@@ -7324,12 +7302,6 @@
             "target": "Package",
             "version": "[8.0.2, )"
           },
-          "Microsoft.EntityFrameworkCore.Design": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[8.0.2, )"
-          },
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
@@ -7343,12 +7315,6 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[8.0.2, )"
-          },
-          "NuGet.CommandLine": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[6.9.1, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
